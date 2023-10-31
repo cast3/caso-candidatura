@@ -1,50 +1,34 @@
 <div id="<%= dom_id candidature %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Codeinscription:</strong>
-    <%= candidature.codeInscription %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Dateinscription:</strong>
-    <%= candidature.dateInscription %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Candidate:</strong>
-    <%= candidature.candidate_id %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Municipality:</strong>
-    <%= candidature.municipality_id %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Period:</strong>
-    <%= candidature.period_id %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Party:</strong>
-    <%= candidature.party_id %>
-  </p>
-
-  <% if action_name != "show" %>
-    <%= link_to "Show this candidature", candidature, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to "Edit this candidature", edit_candidature_path(candidature), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
-  <% end %>
-</div>
-
-<div id="<%= dom_id municipality %>">
   <div class="flex flex-col text-sm justify-start flex-wrap gap-2">
     <div class="flex flex-row flex-wrap gap-2">
-      <span class="font-medium">Código DANE:</span>
-      <%= municipality.daneCode %>
+      <span class="font-medium">Código de inscripción:</span>
+      <%= candidature.codeInscription %>
     </div>
     <div class="flex flex-row flex-wrap gap-2">
-      <span class="font-medium">Nombre:</span>
-      <%= municipality.name %>
+      <span class="font-medium">Fecha de inscripción:</span>
+      <%= candidature.dateInscription %>
+    </div>
+    <div class="flex flex-row flex-wrap gap-2">
+      <span class="font-medium">Municipuo:</span>
+      <%= candidature.municipality.name %>
+    </div>
+    <div class="flex flex-row flex-wrap gap-2">
+      <span class="font-medium">Candidato:</span>
+      <%= candidature.candidate.name %>
+    </div>
+    <div class="flex flex-col flex-wrap gap-2">
+      <span class="font-medium">Partidos:</span>
+      <div class="flex flex-col pl-2">
+        <% @candidature.parties.each_with_index do |party, index| %>
+          <ul>
+            <li><%= "#{index + 1}. #{party.name}" %></li>
+          </ul>
+        <% end %>
+      </div>
+    </div>
+    <div class="flex flex-row flex-wrap gap-2">
+      <span class="font-medium">Periodo:</span>
+      <%= candidature.period.display_name %>
     </div>
   </div>
 </div>

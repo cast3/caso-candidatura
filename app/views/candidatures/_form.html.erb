@@ -23,7 +23,7 @@
     </div>
     <div class="my-5">
       <%= form.label "Periodo" %>
-      <%= form.collection_select :period_id, Period.select(:start_year, :end_year).map { |period| "#{period.start_year} - #{period.end_year}" }, :id, :start_year, { prompt: 'Seleccione un periodo' }, { class: 'block shadow-md rounded-md border border-gray-400 outline-none px-3 py-2 w-full', required:true } %>
+      <%= form.collection_select :period_id, Period.select(:id, :start_year, :end_year), :id, :display_name, { prompt: 'Seleccione un periodo' }, { class: 'block shadow-md rounded-md border border-gray-400 outline-none px-3 py-2 w-full', required: true } %>
       <div class="text-red-500 mt-1">
         <%= candidature.errors.full_messages_for(:period_id).join(', ').split[1..-1].join(" ") if candidature.errors[:period_id].any? %>
       </div>
@@ -36,10 +36,10 @@
       </div>
     </div>
     <div class="my-5">
-      <%= form.label "Partido" %>
-      <%= form.collection_select :party_id, Party.all.order(name: :asc), :id, :name, { prompt: 'Seleccione un partido' }, { class: 'block shadow-md rounded-md border border-gray-400 outline-none px-3 py-2 w-full', required:true } %>
+      <%= form.label "Partidos" %>
+      <%= form.collection_select :party_ids, Party.all.order(name: :asc), :id, :name, {  }, { class: 'block shadow-md rounded-md border border-gray-400 outline-none px-3 py-2 w-full', required: true, multiple: true } %>
       <div class="text-red-500 mt-1">
-        <%= candidature.errors.full_messages_for(:party_id).join(', ').split[1..-1].join(" ") if candidature.errors[:party_id].any? %>
+        <%= candidature.errors.full_messages_for(:party_ids).join(', ').split[1..-1].join(" ") if candidature.errors[:party_ids].any? %>
       </div>
     </div>
     <%= form.submit "Crear candidatura", class: "rounded-lg py-2 px-5 bg-blue-600 text-white inline-block font-medium hover:brightness-105 cursor-pointer" %>

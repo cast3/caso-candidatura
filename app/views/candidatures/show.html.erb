@@ -1,15 +1,15 @@
-<div class="mx-auto md:w-2/3 w-full flex">
-  <div class="mx-auto">
-    <% if notice.present? %>
-      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-    <% end %>
-
-    <%= render @candidature %>
-
-    <%= link_to "Edit this candidature", edit_candidature_path(@candidature), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <div class="inline-block ml-2">
-      <%= button_to "Destroy this candidature", candidature_path(@candidature), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+<div class="w-screen h-screen">
+  <div class="w-full h-full flex flex-col justify-center items-center">
+    <div class="w-1/2 h-1/2 mx-auto flex-col border boder-gray-200 shadow-xl">
+      <div class="w-full p-4">
+        <h1 class="text-2xl text-center underline">Resumen candidatura</h1>
+        <div class="flex flex-col justify-start gap-4 my-5">
+          <%= render @candidature %>
+        </div>
+      </div>
+      <div class="flex items-center justify-center">
+        <%= link_to "Volver al inicio", candidatures_path, class: "ml-2 py-2 border border-gray-300 bg-[#e3e3e3] hover:brightness-105 rounded-lg px-5 bg-gray-100 inline-block font-medium" %>
+      </div>
     </div>
-    <%= link_to "Back to candidatures", candidatures_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
   </div>
 </div>

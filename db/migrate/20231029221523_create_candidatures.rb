@@ -6,7 +6,6 @@ class CreateCandidatures < ActiveRecord::Migration[7.1]
       t.references :candidate, null: false, foreign_key: true
       t.references :municipality, null: false, foreign_key: true
       t.references :period, null: false, foreign_key: true
-      t.references :party, null: false, foreign_key: true
 
       t.timestamps
     end
