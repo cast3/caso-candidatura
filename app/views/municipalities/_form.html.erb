@@ -1,0 +1,20 @@
+<%= form_with(model: municipality, class: 'overflow-auto pb-[5dvh] text-sm flex justify-center') do |form| %>
+  <div class="inline">
+    <div class="my-5">
+      <%= form.label "Código DANE" %>
+      <%= form.text_field :daneCode, class: "block text-sm shadow rounded-md border border-gray-400 outline-none px-3 py-2 w-full", placeholder: 'Código' %>
+      <div class="text-red-500 mt-1">
+        <%= municipality.errors.full_messages_for(:daneCode).join(', ').split[1..-1].join(" ") if municipality.errors[:daneCode].any? %>
+      </div>
+    </div>
+    <div class="my-5">
+      <%= form.label "Nombre del municipio" %>
+      <%= form.text_field :name, class: "block text-sm shadow rounded-md border border-gray-400 outline-none px-3 py-2 w-full", placeholder: 'Nombre' %>
+      <div class="text-red-500 mt-1">
+        <%= municipality.errors.full_messages_for(:name).join(', ').split[1..-1].join(" ") if municipality.errors[:name].any? %>
+      </div>
+    </div>
+    <%= form.submit "Crear municipio", class: "rounded-lg py-2 px-5 bg-blue-600 text-white inline-block font-medium hover:brightness-105 cursor-pointer" %>
+    <%= link_to "Volver al inicio", municipalities_path, class: "ml-2 py-2 border border-gray-300 bg-[#e3e3e3] hover:brightness-105 rounded-lg px-5 bg-gray-100 inline-block font-medium" %>
+  </div>
+<% end %>

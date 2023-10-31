@@ -1,0 +1,43 @@
+<% nav_link_classes = 'flex justify-between text-left items-center py-1 px-6 align-middle text-gray-600 no-underline rounded-lg py-2 px-5 bg-blue-600 shadow-lg text-white inline-block font-medium hover:brightness-125 cursor-pointer md:py-2' %>
+<div class="relative w-screen h-screen flex items-center justify-center text-sm">
+  <div class="border bg-[#fefefe] border-gray-300 w-11/12 lg:w-1/2 h-1/2 drop-shadow-xl rounded-lg p-4">
+    <div class="w-full">
+      <div class="relative my-5">
+        <h1 class="font-bold text-center text-2xl my-2 underline">Registro de candidatos a elección de alcaldes</h1>
+        <h1 class="font-bold text-center text-base mb-2">Menú principal</h1>
+      </div>
+      <div class="w-full flex flex-wrap justify-center gap-5 h-full">
+        <div class="flex flex-col items-center flex-wrap justify-center gap-2 font-medium">
+          <span>1. Gestión de candidatos</span>
+          <%= link_to candidates_path, class: "#{nav_link_classes}" do %>
+            Gestionar
+          <% end %>
+        </div>
+        <div class="flex flex-col items-center flex-wrap justify-center gap-2 font-medium">
+          <span>2. Gestión de municipios</span>
+          <%= link_to municipalities_path, class: "#{nav_link_classes}" do %>
+            Gestionar
+          <% end %>
+        </div>
+        <div class="flex flex-col items-center flex-wrap justify-center gap-2 font-medium">
+          <span>3. Gestión de periodos</span>
+          <%= link_to periods_path, class: "#{nav_link_classes}" do %>
+            Gestionar
+          <% end %>
+        </div>
+        <div class="flex flex-col items-center flex-wrap justify-center gap-2 font-medium">
+          <span>4. Gestión de candidaturas</span>
+          <%= link_to candidatures_path, class: "#{nav_link_classes}" do %>
+            Gestionar
+          <% end %>
+        </div>
+        <div class="flex flex-col items-center flex-wrap justify-center gap-2 font-medium">
+          <span>5. Gestión de partidos</span>
+          <%= link_to parties_path, class: "#{nav_link_classes}" do %>
+            Gestionar
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

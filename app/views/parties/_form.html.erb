@@ -1,0 +1,20 @@
+<%= form_with(model: party, class: 'overflow-auto pb-[5dvh] text-sm flex justify-center') do |form| %>
+  <div class="inline">
+    <div class="my-5">
+      <%= form.label "Identificación" %>
+      <%= form.text_field :identification, class: "block text-sm shadow rounded-md border border-gray-400 outline-none px-3 py-2 w-full", placeholder: 'Código de identificación' %>
+      <div class="text-red-500 mt-1">
+        <%= party.errors.full_messages_for(:identification).join(', ').split[1..-1].join(" ") if party.errors[:identification].any? %>
+      </div>
+    </div>
+    <div class="my-5">
+      <%= form.label "Nombre del partido" %>
+      <%= form.text_field :name, class: "block text-sm shadow rounded-md border border-gray-400 outline-none px-3 py-2 w-full", placeholder: 'Partido' %>
+      <div class="text-red-500 mt-1">
+        <%= party.errors.full_messages_for(:name).join(', ').split[1..-1].join(" ") if party.errors[:name].any? %>
+      </div>
+    </div>
+    <%= form.submit "Crear partido", class: "rounded-lg py-2 px-5 bg-blue-600 text-white inline-block font-medium hover:brightness-105 cursor-pointer" %>
+    <%= link_to "Volver al inicio", parties_path, class: "ml-2 py-2 border border-gray-300 bg-[#e3e3e3] hover:brightness-105 rounded-lg px-5 bg-gray-100 inline-block font-medium" %>
+  </div>
+<% end %>

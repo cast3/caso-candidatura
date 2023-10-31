@@ -1,0 +1,26 @@
+<div class="relative w-screen h-screen flex items-center justify-center text-sm">
+  <div class="border bg-[#fefefe] border-gray-300 w-11/12 lg:w-1/2 h-1/2 drop-shadow-xl rounded-lg p-4">
+    <div class="w-full">
+      <div class="relative my-5">
+        <h1 class="font-bold text-center text-2xl my-2 underline">Registro de candidatos a elección de alcaldes</h1>
+        <h1 class="font-bold text-center text-base mb-2">Partidos</h1>
+      </div>
+      <div class="w-full flex flex-wrap justify-center gap-4 h-full">
+        <div class="flex flex-col items-center flex-wrap justify-center gap-3 font-medium">
+          <span>1. Buscar partido:</span>
+          <%= form_tag(buscar_parties_path, method: :get, class:'flex justify-start flex-col gap-2') do %>
+            <%= text_field_tag :parametro, params[:parametro], placeholder: 'Buscar por identificacion', class:"w-full text-sm rounded-lg py-2" %>
+            <%= submit_tag "Buscar", class: "hover:brightness-105 rounded-lg py-2 px-5 bg-blue-600 text-white font-medium cursor-pointer" %>
+          <% end %>
+        </div>
+        <div class="flex flex-col flex-wrap justify-start items-center gap-3 font-medium">
+          <span>2. Crear nuevo partido:</span>
+          <%= link_to "Nuevo municipio", new_party_path, class: "flex text-center items-center rounded-lg py-2 px-12 hover:brightness-105 bg-blue-600 w-auto text-white block font-medium" %>
+        </div>
+      </div>
+      <div class="flex items-center justify-center pt-10">
+        <%= link_to "Volver al menu", root_path, class: "ml-2 py-2 border border-gray-300 bg-[#e3e3e3] hover:brightness-105 rounded-lg px-5 bg-gray-100 inline-block font-medium" %>
+      </div>
+    </div>
+  </div>
+</div>

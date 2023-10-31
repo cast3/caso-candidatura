@@ -1,0 +1,48 @@
+<%= form_with(model: candidature, class: 'overflow-auto pb-[5dvh] text-sm flex justify-center') do |form| %>
+  <div class="inline">
+    <div class="my-5">
+      <%= form.label "Código de inscripción" %>
+      <%= form.text_field :codeInscription, class: "block text-sm shadow rounded-md border border-gray-400 outline-none px-3 py-2 w-full", placeholder: 'Código' %>
+      <div class="text-red-500 mt-1">
+        <%= candidature.errors.full_messages_for(:codeInscription).join(', ').split[1..-1].join(" ") if candidature.errors[:identification].any? %>
+      </div>
+    </div>
+    <div class="my-5">
+      <%= form.label "Fecha de inscripción", class: "block mt-3 mb-1" %>
+      <%= form.date_field :dateInscription, as: :date, class: 'block shadow rounded-md border border-gray-400 outline-none px-3 py-2 w-full' %>
+      <div class="text-red-500 mt-1">
+        <%= candidature.errors.full_messages_for(:dateInscription).join(', ').split[1..-1].join(" ") if candidature.errors[:dateInscription].any? %>
+      </div>
+    </div>
+    <div class="my-5">
+      <%= form.label "Candidato" %>
+      <%= form.collection_select :candidate_id, Candidate.all.order(name: :asc), :id, :name, { prompt: 'Seleccione un candidato' }, { class: 'block shadow-md rounded-md border border-gray-400 outline-none px-3 py-2 w-full', required:true } %>
+      <div class="text-red-500 mt-1">
+        <%= candidature.errors.full_messages_for(:candidate_id).join(', ').split[1..-1].join(" ") if candidature.errors[:candidate_id].any? %>
+      </div>
+    </div>
+    <div class="my-5">
+      <%= form.label "Periodo" %>
+      <%= form.collection_select :period_id, Period.select(:start_year, :end_year).map { |period| "#{period.start_year} - #{period.end_year}" }, :id, :start_year, { prompt: 'Seleccione un periodo' }, { class: 'block shadow-md rounded-md border border-gray-400 outline-none px-3 py-2 w-full', required:true } %>
+      <div class="text-red-500 mt-1">
+        <%= candidature.errors.full_messages_for(:period_id).join(', ').split[1..-1].join(" ") if candidature.errors[:period_id].any? %>
+      </div>
+    </div>
+    <div class="my-5">
+      <%= form.label "Municipio" %>
+      <%= form.collection_select :municipality_id, Municipality.all.order(name: :asc), :id, :name, { prompt: 'Seleccione un municipio' }, { class: 'block shadow-md rounded-md border border-gray-400 outline-none px-3 py-2 w-full', required:true } %>
+      <div class="text-red-500 mt-1">
+        <%= candidature.errors.full_messages_for(:municipality_id).join(', ').split[1..-1].join(" ") if candidature.errors[:municipality_id].any? %>
+      </div>
+    </div>
+    <div class="my-5">
+      <%= form.label "Partido" %>
+      <%= form.collection_select :party_id, Party.all.order(name: :asc), :id, :name, { prompt: 'Seleccione un partido' }, { class: 'block shadow-md rounded-md border border-gray-400 outline-none px-3 py-2 w-full', required:true } %>
+      <div class="text-red-500 mt-1">
+        <%= candidature.errors.full_messages_for(:party_id).join(', ').split[1..-1].join(" ") if candidature.errors[:party_id].any? %>
+      </div>
+    </div>
+    <%= form.submit "Crear candidatura", class: "rounded-lg py-2 px-5 bg-blue-600 text-white inline-block font-medium hover:brightness-105 cursor-pointer" %>
+    <%= link_to "Volver al inicio", candidatures_path, class: "ml-2 py-2 border border-gray-300 bg-[#e3e3e3] hover:brightness-105 rounded-lg px-5 bg-gray-100 inline-block font-medium" %>
+  </div>
+<% end %>

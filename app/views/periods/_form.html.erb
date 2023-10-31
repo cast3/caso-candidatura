@@ -1,0 +1,20 @@
+<%= form_with(model: period, class: 'overflow-auto pb-[5dvh] text-sm flex justify-center') do |form| %>
+  <div class="inline">
+    <div class="my-5">
+      <%= form.label "Primer año" %>
+      <%= form.text_field :start_year, class: "block text-sm shadow rounded-md border border-gray-400 outline-none px-3 py-2 w-full", placeholder: '####' %>
+      <div class="text-red-500 mt-1">
+        <%= period.errors.full_messages_for(:start_year).join(', ').split[1..-1].join(" ") if period.errors[:start_year].any? %>
+      </div>
+    </div>
+    <div class="my-5">
+      <%= form.label "Segundo año" %>
+      <%= form.text_field :end_year, class: "block text-sm shadow rounded-md border border-gray-400 outline-none px-3 py-2 w-full", placeholder: '####' %>
+      <div class="text-red-500 mt-1">
+        <%= period.errors.full_messages_for(:end_year).join(', ').split[1..-1].join(" ") if period.errors[:end_year].any? %>
+      </div>
+    </div>
+    <%= form.submit "Crear periodo", class: "rounded-lg py-2 px-5 bg-blue-600 text-white inline-block font-medium hover:brightness-105 cursor-pointer" %>
+    <%= link_to "Volver al inicio", periods_path, class: "ml-2 py-2 border border-gray-300 bg-[#e3e3e3] hover:brightness-105 rounded-lg px-5 bg-gray-100 inline-block font-medium" %>
+  </div>
+<% end %>

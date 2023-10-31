@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  codeInscription: MyString
+  dateInscription: MyString
+  candidate: one
+  municipality: one
+  period: one
+  party: one
+
+two:
+  codeInscription: MyString
+  dateInscription: MyString
+  candidate: two
+  municipality: two
+  period: two
+  party: two

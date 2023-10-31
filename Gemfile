@@ -33,8 +33,9 @@ gem 'foreman'
 gem 'tailwindcss-rails'
 
 # solargraph
-gem 'solargraph'
+gem 'solargraph', group: :development
 
+gem 'erb-formatter'
 # pagy
 gem 'net-http'
 gem 'pagy'
@@ -74,6 +75,7 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
+  gem 'faker'
 end
 
 group :development do
