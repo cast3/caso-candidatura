@@ -43,13 +43,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_29_231523) do
     t.index ["period_id"], name: "index_candidatures_on_period_id"
   end
 
-  create_table "parties", force: :cascade do |t|
-    t.string "identification"
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "municipalities", force: :cascade do |t|
     t.string "daneCode"
     t.string "name"
@@ -57,7 +50,12 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_29_231523) do
     t.datetime "updated_at", null: false
   end
 
-
+  create_table "parties", force: :cascade do |t|
+    t.string "identification"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "periods", force: :cascade do |t|
     t.string "start_year"

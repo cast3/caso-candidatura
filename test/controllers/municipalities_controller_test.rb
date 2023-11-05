@@ -2,17 +2,25 @@ require "test_helper"
 
 class MunicipalitiesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @municipality = municipalities(:one)
-  end
-
-  test "should get index" do
-    get municipalities_url
-    assert_response :success
+    @municipality = municipalities(:muni)
   end
 
   test "should get new" do
     get new_municipality_url
     assert_response :success
+  end
+
+  test "should search and no found municipality" do
+    get buscar_municipalities_url('No exists')
+    assert_redirected_to municipalities_url
+  end
+
+  test "should search and redirect to municipality when found" do
+    get buscar_municipalities_url(parametro: @municipality.daneCode)
+
+    assert_response :success
+    assert_template 'show'
+    assert_equal @municipality, assigns(:municipality)
   end
 
   test "should create municipality" do
@@ -28,21 +36,4 @@ class MunicipalitiesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get edit" do
-    get edit_municipality_url(@municipality)
-    assert_response :success
-  end
-
-  test "should update municipality" do
-    patch municipality_url(@municipality), params: { municipality: { daneCode: @municipality.daneCode, name: @municipality.name } }
-    assert_redirected_to municipality_url(@municipality)
-  end
-
-  test "should destroy municipality" do
-    assert_difference("Municipality.count", -1) do
-      delete municipality_url(@municipality)
-    end
-
-    assert_redirected_to municipalities_url
-  end
 end

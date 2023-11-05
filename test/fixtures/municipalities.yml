@@ -1,9 +1,5 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  daneCode: MyString
-  name: MyString
-
-two:
-  daneCode: MyString
-  name: MyString
+muni:
+  daneCode: "ADAD23FFA"
+  name: "Guajira"

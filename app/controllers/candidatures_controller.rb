@@ -21,7 +21,7 @@ class CandidaturesController < ApplicationController
 
   def create
     @candidature = Candidature.new(candidature_params)
- 
+
     respond_to do |format|
       if @candidature.save
         parties = params[:candidature][:party_ids].reject(&:blank?)
@@ -37,7 +37,7 @@ class CandidaturesController < ApplicationController
       end
     end
   end
-  
+
 
   private
     def set_candidature

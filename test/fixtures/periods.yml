@@ -1,9 +1,5 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  start_year: MyString
-  end_year: MyString
-
-two:
-  start_year: MyString
-  end_year: MyString
+period:
+  start_year: "2020"
+  end_year: "2024"
