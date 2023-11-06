@@ -1,6 +1,9 @@
 class PeriodsController < ApplicationController
   before_action :set_period, only: %i[ show ]
 
+  def index
+  end
+
   def show
   end
 

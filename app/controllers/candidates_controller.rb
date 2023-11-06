@@ -1,6 +1,9 @@
 class CandidatesController < ApplicationController
   before_action :set_candidate, only: %i[ show ]
 
+  def index
+  end
+
   def show
   end
 

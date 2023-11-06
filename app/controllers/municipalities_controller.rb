@@ -1,6 +1,9 @@
 class MunicipalitiesController < ApplicationController
   before_action :set_municipality, only: %i[ show ]
 
+  def index
+  end
+
   def show
   end
 

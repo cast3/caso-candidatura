@@ -1,13 +1,4 @@
 Rails.application.routes.draw do
-  # concern :buscarable do
-  #   get 'buscar', on: :member
-  # end
-
-  # resources :periods, concerns: :buscarable
-  # resources :candidatures, concerns: :buscarable
-  # resources :municipalities, concerns: :buscarable
-  # resources :parties, concerns: :buscarable
-  # resources :candidates, concerns: :buscarable
 
   resources :periods, :candidatures, :municipalities, :parties, :candidates do
     collection do
