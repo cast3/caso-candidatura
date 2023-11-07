@@ -4,7 +4,7 @@
       <%= form.label "Código de inscripción" %>
       <%= form.text_field :codeInscription, class: "block text-sm shadow rounded-md border border-gray-400 outline-none px-3 py-2 w-full", placeholder: 'Código' %>
       <div class="text-red-500 mt-1">
-        <%= candidature.errors.full_messages_for(:codeInscription).join(', ').split[1..-1].join(" ") if candidature.errors[:identification].any? %>
+        <%= candidature.errors.full_messages_for(:codeInscription).join(', ').split[1..-1].join(" ") if candidature.errors[:codeInscription].any? %>
       </div>
     </div>
     <div class="my-5">
